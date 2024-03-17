@@ -8,7 +8,6 @@ import cors from'cors';
 config();
 
 const server = express();
-server.use(cors());
 
 server.use((req, res, next) => {
     res.setHeader('Content-Security-Policy', "default-src 'self'; connect-src 'self' *;");
