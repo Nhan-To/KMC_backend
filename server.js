@@ -6,9 +6,11 @@ import cors from'cors';
 
 
 config();
-server.use(cors());
 
 const server = express();
+server.use(cors());
+server.use(cors());
+
 server.use(json());
 
 routesFn(server);
