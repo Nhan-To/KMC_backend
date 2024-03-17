@@ -48,20 +48,26 @@ const getItems = async (req, res) => {
 
 const findItems = async (req, res) => {
     try {
-        const { barcode } = req.params; 
-        const items = await Items.findOne({barcode: barcode});
+        const { param } = req.params; 
+        console.log(param);
+        const items = await Items.find({
+            $or: [
+                { barcode: param },
+                { name: { $regex: param.toString(), $options: 'i' } }
+            ]
+        });
         res.status(200).json({
             message: "Item found",
             data: items
         });
-    }
-    catch (error) {
+    } catch (error) {
         res.status(500).json({
             message: 'Internal server error',
             error: error.message
-        })
+        });
     }
-}
+};
+
 
 const updateItems = async (req, res) => {
     try { 
