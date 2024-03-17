@@ -9,7 +9,11 @@ config();
 
 const server = express();
 server.use(cors());
-server.use(cors());
+
+server.use((req, res, next) => {
+    res.setHeader('Content-Security-Policy', "default-src 'self'; connect-src 'self' *;");
+    next();
+});  
 
 server.use(json());
 
