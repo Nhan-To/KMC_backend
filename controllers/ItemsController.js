@@ -88,8 +88,9 @@ const updateItems = async (req, res) => {
 
 const deleteItems = async (req, res) => {
     try {
-        const { barcode } = req.params;
-        const deletedItem = await Items.findOneAndDelete({ barcode });
+        console.log(req.params);
+        const { param } = req.params;
+        const deletedItem = await Items.findOneAndDelete({ barcode: param });
         res.status(200).json({ message: "Item deleted successfully" });
     } 
     catch (error) {

@@ -1,7 +1,7 @@
 import express from 'express';
 import { createSoldItems, getSoldItems, findSoldItems, updateSoldItems, deleteSoldItems } from '../controllers/soldItemsControler.js'
 
-const soldItemRouter = express.Router();
+const soldItemRouter = express.Router()
 
 soldItemRouter.route('/').get(getSoldItems)
                          .post(createSoldItems)
