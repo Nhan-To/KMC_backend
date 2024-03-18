@@ -31,7 +31,7 @@ const getItems = async (req, res) => {
     try  {
         const { skip, limit } = req.query;
         console.log(skip, limit);
-        const items = await Items.find().skip(skip).limit(limit);
+        const items = await Items.find();
         console.log(items)
         res.status(200).json({
             messages: "Items found",
