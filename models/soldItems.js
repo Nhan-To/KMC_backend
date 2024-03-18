@@ -30,15 +30,15 @@ const ItemsSchema = mongoose.Schema({
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     unitPrice: {
-        type: Number,
+        type: String,
         required: true
     },
     revenue: {
-        type: Number,
+        type: String,
         required: true
     },
     buyDate: {
